@@ -23,11 +23,15 @@ router.get('/:id',(req,res) => {
         inlcude: [
             {
                 model: Post,
-                attributes:['title','body']
+                attributes:['id','title','contents','user_id']
             },
             {
                 model: Comment,
-                attributes: ['body']
+                attributes: ['id','comement_text','created_at'],
+                include: {
+                    model: Post,
+                    attributes:['title']
+                }
             }
         ]
     })
@@ -61,6 +65,37 @@ router.post('/',(req,res) => {
           });
         })
 });
+
+router.post('/login', (req,res)=> {
+    console.log('I am in login');
+    User.findOne({
+        where:{
+            email: req.body.email
+        }
+    }).then(dbUserData => {
+        if(!dbUserData){
+            res.status(400).json({message: 'No user with that email address'});
+            return;
+        }
+        const validPassword = dbUserData.checkPassword(req.body.password);
+
+        if(!validPassword) {
+            res.status(400).json({ message: 'Incorrect Password!'});
+            return;
+        }
+        console.log(req.session);
+        req.session.save(() => {
+            req.session.user_id = dbUserData.id;
+            req.session.username = dbUserData.username;
+
+            req.session.loggedIn = true;
+
+            res.json({ user: dbUserData, message: 'You are logged in!'});
+            console.log(req.session);
+        });
+    });
+});
+
 
 // //Create a new user?
 // router.post('/', async (req, res) => {
