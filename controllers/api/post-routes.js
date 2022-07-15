@@ -8,12 +8,13 @@ router.get('/', (req,res) => {
             'id',
             'title',
             'content',
-            'user_id'
+            'user_id',
+            'created_at'
         ],
         include: [
             {
                 model: Comment,
-                attributes: ['id','comment_text','user_id','post_id'],
+                attributes: ['id','comment_text','user_id','post_id','created_at'],
                 include: {
                     model: User,
                     attributes:['username']
@@ -40,18 +41,27 @@ router.get('/:id',(req,res) => {
         attributes: [
             'id',
             'title',
-            'content'
+            'content',
+            'created_at'
         ],
         include: [
             {
                 model: User,
                 attributes: ['username']
+            },
+            {
+                model: Comment,
+                attributes: ['id','comment_text','post_id','user_id','created_at'],
+                include: {
+                    model: User,
+                    attributes: ['username']
+                }
             }
         ]
     })
     .then(dbUserData => {
         if(!dbUserData) {
-            res.status(404).json({message: 'No user found with this id'});
+            res.status(404).json({message: 'No Post found with this id'});
             return;
         }
         res.json(dbUserData);
