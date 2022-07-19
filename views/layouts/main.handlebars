@@ -5,27 +5,29 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Tech Blog</title>
     <link rel="stylesheet" href="/stylesheets/style.css"> 
+    <!-- CSS only -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-0evHe/X+R7YkIZDRvuzKMRqM+OrBnVFBL6DOitfPri4tjfHxaWutUpFmBp4vmVor" crossorigin="anonymous">
     {{!-- Need to change --}}
 </head>
 <body>
-    <div class ="wrapper">
+    <div class ="page-header">
         <header>
             <h1>
-                <a href="/">Tech Blog</a>
+                <a href="/" class="text-light">Tech Blog</a>
             </h1>
-            <nav>
+            <nav class="navbar navbar-expand-lg ">
                 {{#if loggedIn}}
-                <a href="/dashboard">dashboard</a>
-                <button id ="logout" class="btn-no-style">logout</button>
+                <a class="navbar-brand text-light" href="/dashboard">dashboard</a>
+                <button id ="logout" class="btn-no-style text-light">logout</button>
                 {{else}}
-                <a href="/login">login</a>
+                <a href="/login" class="text-light">login</a>
                 {{/if}}
             </nav>
         </header>
         <main>
             {{{ body }}}
         </main>
-        <footer>
+        <footer class="text-light">
             Thanks for visiting!
         </footer>
     </div>

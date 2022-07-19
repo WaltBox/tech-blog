@@ -1,31 +1,56 @@
-<form class="login-form">
-    <div>
-        <label for="email-login">email:</label>
-        <input type="text" id="email-login" />
-    </div>
-    <div>
-        <label for="password-login">password:</label>
-        <input type="password" id="password-login" />
-    </div>
-    <div>
-        <button type="submit">login</button>
-    </div>
-</form>
-<form class="signup-form">
-    <div>
-        <label for="username-signup">username:</label>
-        <input type="text" id="username-signup" />
-    </div>
-    <div>
-        <label for="email-signup">email:</label>
-        <input type="text" id="email-signup" />
-    </div>
-    <div>
-        <label for="password-signup">password:</label>
-        <input type="password" id="password-signup" />
-    </div>
-    <div>
-        <button type="submit">signup</button>
+{{!-- <form class="login-form"> --}}
+    <div class="container">
+        <div class="row justify-content-center mt-5">
+            <div class="col-lg-6 col-md-6 col-sm-6">
+                <div class="card shadow">
+                    <div class="card-title text-center border-bottom">
+                        <h2 class="p-3">Login</h2>
+                    </div>
+                    <div class="card-body"></div>
+                    <form class="login-form">
+
+                        <div class="mb-4">
+                 <label for="email-login" class="form-label">email:</label>
+                            <input type="text" class="form-control" id="email-login" />
+                        </div>
+
+                        <div class="mb-4">
+                            <label for="password-login" class="form-label">password:</label>
+                            <input type="password" class="form-control" id="password-login" />
+                        </div>
+                        <div class="d-grid">
+                            <button type="submit" class="btn btn-success text-light">login</button>
+                        </div>
+                </div>
+            </div>
+        </div>
     </div>
 </form>
-<script src="/javascript/login.js"></script>
+
+<div class="container">
+    <div class="row justify-content-center mt-5">
+        <div class="col-lg-6 col-md-6 col-sm-6">
+            <div class="card shadow">
+                <div class="card-title text-center border-bottom">
+                    <h2 class="p-3">Or Sign up</h2>
+                </div>
+                <div class="card-body"></div>
+
+                <form class="signup-form">
+                    <div class="mb-4">
+                        <label for="username-signup" class="form-label">username:</label>
+                        <input type="text" class="form-control" id="username-signup" />
+                    </div>
+                    <div>
+                        <label for="email-signup" class="form-label">email:</label>
+                        <input type="text" class="form-control" id="email-signup" />
+                    </div>
+                    <div>
+                        <label for="password-signup" class="form-label">password:</label>
+                        <input type="password" class="form-control" id="password-signup" />
+                    </div>
+                    <div class="d-grid">
+                        <button type="submit" class="btn btn-success text-light">signup</button>
+                    </div>
+                </form>
+                <script src="/javascript/login.js"></script>
