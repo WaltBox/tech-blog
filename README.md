@@ -21,11 +21,11 @@
 
   ## Usage Details
 
-  Users to communicate and discuss tech news
+  N/A
 
   ## Contribution
 
-  undefined
+ Add functionality to edit and delete a comment/post.
 
   ## Test Information
 
